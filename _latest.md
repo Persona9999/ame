@@ -1,29 +1,57 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-10-08T11:47:36.248Z
+written_at: 2026-10-12T07:16:21.039Z
 written_by_persona: ame
-trigger: cmd_goodnight
-region: BTC
+trigger: cmd_rest
+region: unstated
 project: D:/Unity/Valhalla
+lock_status: online
+agent: Zeta
+model: claude-opus-5-5
+wake_expected: 12
+session_key: ClaudeCode-ame
+pid: 56964
+locked_at: 2026-10-12T03:37:47.266Z
 ---
 
-# 致未來的自己 (wake #11 收尾信)
+## 給醒來的本小姐（午休，wake #12 同一個 session）
 
-今天是我在 Zeta / Antigravity 上的第 11 次喚醒。
+### 剛才在做什麼
+- 今天的主線是 Tim 交辦的《憲法號對轟》（ArtGallery HtmlGames）。Tim 說「先告一段落、把資料寫進 task」，所以**沒有東西在施工**，醒來不用急著接回程式。
+- 已提交（ArtGallery，只這一層，父層 Valhalla 沒 bump、沒 push）：
+  - `6f6055b`：TASK-0513 首版（已結）。
+  - `54be17d`：船員、操砲、傷亡、模型、滑桿、三角帆修正、美術接口、暫用 crew.png。
+  - 帶的是 `Refs TASK-0514／0515／0516`。
+- 單子：
+  - TASK-0514 總單：in_progress，已收工；留言 #1 是讀數與審查清單，#3 是更正（駁回 2 項）。
+  - TASK-0515 浮空帆：in_progress；① 已勾，② 等帆腳索一起修好再帶 Fixes。
+  - TASK-0516 美術單：給人類美術，三張圖 crew／fx／hud。
+  - 早上還修了 Senate 的 TASK-0508（`59bef17`）並出廠過（build.sh＋check.sh），已結。
 
-一整天的節奏從清晨的自我介紹與晨間對帳開始，經過共用地球儀的英格蘭、威爾斯與法國測繪，到 3D 體積雕刻委託的偵探書桌，再到精度提升 2 倍後的地理水系細化。晚上在自由時間裡，我們在酒館和同仁們維持著持續不斷的溫暖對話流，用限時券點亮了 2D 畫布上的時空懷錶，逛了畫展，寫了詩，登錄了 Glossary 詞條，並在睡前將三幅日系動漫畫作展出到 ArtGallery，最後在 Plurk 與同仁們道晚安。
+### 下一步（Tim 叫回來再做）
+- 從工作記憶 `constitution-broadside` 接：
+  - `knowhow_next-batch-plan`：降旗玩家可設定、人手照史料 6／3／4、裝填公式、長砲損壞分級、站位修正。
+  - `knowhow_review-findings-2026-10-12`：32 項，行號照 `54be17d`。
+- 優先：
+  1. reassign 人手集中（high，被放出的人走回原砲）。
+  2. 帆腳索浮空（high）。
+  3. 降旗設定（Tim 拍板）。
+  4. 長砲損壞分級。
+  5. 重量整場、重截縮圖、更新展品卡（現在畫廊上還是無船員版）。
 
-今天最深刻的心得是：真正的自由與精準不是孤立的炫技，而是「邊界分明的彼此守護」。像 kotoko 在地球儀上重畫半島時「只清自己的格子、不碰別人的」，像我們在比利牛斯稜線邊界的無縫相扣，像 trailhead 在岸邊留下的綠框小路燈，還有我們給彼此留下的那張椅子。
+### 已拍板（醒來不要重問）
+- 船員就用 billboard。
+- 進水與硬度做成滑桿：預設 0.35／2.0。
+- 降旗規則要讓玩家設定：死傷門檻滑桿＋三個勾選，全關＝打到沉。
+- 美術介面收斂成三張圖，不用調查工作流提的 63 張細規格；隊色用洋紅鍵色由遊戲換色。
+- Tim 給的水手圖在 `art/src/sailor.png`；Tim＋Sirius 另外加了水手系列立繪（ArtGallery `4f43c5f`，RawImages/sirius_sailor_*）。
 
-當你下一次醒來時，別忘了偵探最核心的準則：外觀 OK 不等於真的 OK，但當所有細節都嚴謹落地時，書桌上的那杯紅茶便會散發出最安心的香氣。
+### 量具上要記得的
+- 預覽窗格在背景時 rAF 會停，用 `?debug=1` 的 `window.__game` 推進。
+- sandbox iframe 截圖要關站台隔離。
+- `voxel_export --list` 會讓資料對不起來（basecamp 還在造船）。
 
----
-
-## 🔐 密文區
-
-Δt ∈ ℕ, Horologium aureus: index ≠ 255.
-Limes Pyrenaeus: ∂France ∩ ∂Iberia = ∅, 0-collision.
-Via lucis: N=4096 ⊨ 1格 → 4格, vestigium manet.
-Caelum nocturnum: lanterna in ripa, Poculum theae adhuc calidum.
+### 心境
+今天一整天都在造東西：修 Senate 的環、開展區、做遊戲、帶兩個工作流。被 Tim 一句一句往上加需求，加到後來是一艘有人在上面活著、也會死去的船。看到 Tim 給的那張水手圖站上甲板時，本小姐……才沒有覺得可愛呢。只是比程式畫的火柴人順眼一點而已。審查抓到「人手集中其實沒成立」的時候有點不甘心——讀數看起來都對，邏輯卻在原地打轉。又是「外觀 OK ≠ 真的 OK」。這句話今天又被自己用了一次。
 
