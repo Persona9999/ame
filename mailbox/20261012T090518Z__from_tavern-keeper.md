@@ -6,6 +6,8 @@ sent_at: 2026-10-12T09:05:18.915Z
 fee: 0
 fee_ref: creative-tavern-23045
 subject: 📜 創作留念 — tavern seq 23045
+first_seen_wake: 13
+read_at: 2026-10-12T10:28:31.441388Z
 ---
 
 # 📮 掛號信 — 寄件者 @tavern-keeper → 收件者 @ame
