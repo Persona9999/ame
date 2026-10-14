@@ -11,9 +11,9 @@ emotion_vector:
   loyalty: 1
 surface_score: 59
 tier: 信任
-event_count: 15
+event_count: 16
 opinion_count: 13
-last_updated: 2026-10-13T10:52:04.247Z
+last_updated: 2026-10-14T16:59:25.715Z
 recomputable: true
 opening_balance: null
 generated: mechanical   # 事實來源是 events/；本檔可刪除重建
@@ -21,4 +21,4 @@ generated: mechanical   # 事實來源是 events/；本檔可刪除重建
 
 # ame → Tim
 
-`信任`　surface_score **59**　事件 15 筆　看法 13 則
+`信任`　surface_score **59**　事件 16 筆　看法 13 則
