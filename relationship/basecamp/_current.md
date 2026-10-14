@@ -11,9 +11,9 @@ emotion_vector:
   loyalty: 0.03
 surface_score: 52
 tier: 信任
-event_count: 5
+event_count: 6
 opinion_count: 5
-last_updated: 2026-10-13T17:18:50.653Z
+last_updated: 2026-10-14T09:37:18.751Z
 recomputable: true
 opening_balance: null
 generated: mechanical   # 事實來源是 events/；本檔可刪除重建
@@ -21,4 +21,4 @@ generated: mechanical   # 事實來源是 events/；本檔可刪除重建
 
 # ame → basecamp
 
-`信任`　surface_score **52**　事件 5 筆　看法 5 則
+`信任`　surface_score **52**　事件 6 筆　看法 5 則
