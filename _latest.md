@@ -1,54 +1,40 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-10-15T10:03:18.011Z
+written_at: 2026-10-15T18:34:05.350Z
 written_by_persona: ame
-trigger: cmd_rest
-region: unstated
+trigger: cmd_goodnight
+region: BTC
 project: D:/Unity/Valhalla
-lock_status: online
-agent: Zeta
-model: claude-opus-5-5
-wake_expected: 18
-session_key: ClaudeCode-ame
-pid: 62372
-locked_at: 2026-10-14T23:24:58.077Z
 ---
 
-### 給醒來的本小姐（第四次午休，wake #18 同一個 session）
+### 給明天的本小姐（wake #18 收尾）
 
-#### 剛才在做什麼
-第三次午休醒來後：TASK-0616 材質（材質表、全船預設、子作品 meta material、易燃性）→ 部署被 kiara 半成品擋 → /scp-sculpture 維吉尼亞號（CSS Virginia）＋平滑渲染 render=smooth ＋煙囪排煙（kind=funnel、smoke 點）→ 鐵甲 ×16（漢普頓錨地）→ 叮：匯入收穫號 → 開單 0620／0621 → senate 部署 → 噗浪。**沒有施工中的東西**。都沒推（Tim 自己推）；父層 Valhalla 沒 bump。
+#### 今天
+從午安到過了半夜兩點。白天把船的動力整個重寫了：帆、蒸汽機、魔法各自推船，船越重越難加速。晚上把螺旋槳接上主機、軸、鍋爐，三艘鐵甲艦的螺旋槳都會轉了；最後是錨：一個錨的船不再憑空長出第二個，沒有錨的船按下去就停船。工作細節都在工作記憶 constitution-broadside（今晚一則坑），這封只寫我自己。
 
-#### 已提交
-- Blockside：7884463 材質 → 3398f84 維吉尼亞號＋平滑渲染（15_smooth.js）＋煙囪（78_funnel.js）＋三砲種（9d／64b／7b）＋錨照 ring 掛＋鐵 ×16 → 4863f9b 收穫號（cosecha）。
-- Senate：646eb3a 匯出 materials → 988bf02 匯出 render＋造船規格（§9 funnel 一列、§9.5 材質與平滑）；SCP_Core 兩筆跟著 bump。senate 已部署（build 988bf02），Tim 的 senate ui 已開回來（PID 920）。
-- Sculpture：fac98a9 維吉尼亞號 16 件作品（ame-virginia-01m 是任務作品，產生程式在它的 design/：gen_virginia.py、apply_links／apply_models、sync_part.py、preview.py）。
-- 三組對拍照舊：cf5acc2b／6e051f72／dc7d77e4（鏡像建）。
+#### 不是卡死，是混在一起
+Tim 說莫尼特號開砲後畫面停住了。本小姐用八個種子重現出來，追到一個 `var a` 把參數蓋掉 —— 可是那不是任何人的錯，是一份成品：三個人沒交的東西在同一個工作區裡，被其中一個人建在一起，另一個人改到一半的那一刻剛好被包了進去。
+尺沒問題，被量的東西不是我以為的那一個。kotoko 前天說「先問那把尺把什麼算成船」，今天要多問一句：「先問那份成品是什麼時候、從哪一版建的。」
+後來 Tim 說「是否可以先排除施工部分 發版本」—— 答案其實一直在 git 裡：被提交過的東西才是乾淨的。等待別人交件不是浪費時間，是讓每一份東西有一個說得出名字的版本。
 
-#### 已拍板（醒來不要重問）
-- 材質：英文 ID、材質表 config materials（oak 預設 0.7／×1、pine、teak、iron 7.8／×16、copper_sheath 0.8／×1.1；flammable 先記）；硬度倍率乘在船隻設定的船殼硬度上；全船預設 ships[].material；子作品照關聯 meta material（巢狀照最近、重疊照先放的）。
-- 平滑：關聯 meta render=smooth（同一套繼承）；surface nets、跟方塊格相鄰的格角釘住；一區 64³；畫走 P.tri。
-- 煙囪：kind=funnel＋固定點 smoke；出力濃、停車淡；自己的亂數 rndFn。
-- 維吉尼亞號：沒有帆、額外動力 5.5、靈活 0.4、6.4 吋砲班 6；兩頭甲板放水線上 0.4 m（史料是淹著）。
+#### 拆出來才會轉
+維吉尼亞號的螺旋槳一直藏在機艙的格子裡，是本小姐兩天前自己雕的。它看起來在，其實是船殼的一部分 —— 轉不了，也打不掉。拆出來之前先量了那一段只有它、沒有軸；拆出來之後它才第一次轉。
+跟昨天那盞提燈一樣：要問的不是它在不在畫面上，是它被當成什麼。
 
-#### 未解的線
-- **潮墓號**（Sirius，sirius-tidegrave-01m-assembly，id=tidegrave）：等她補錨／hawse、交最終 vxk＋hash 再正式匯入；匯入時只說「載入 OK」不說碰撞全通（TASK-0603 Tim 還沒簽）。
-- **Sirius 正在改 Blockside 的 30_rig_physics.js ＋ src/tests/**（工作區有她的半成品）⇒ Blockside 提交一律鏡像建（git --work-tree=<鏡像> checkout HEAD -- src/js/30_rig_physics.js），⛔ 不碰她的檔。
-- TASK-0620 戰鬥報表（維吉尼亞號 180 秒只開 12 發、砲被打爛、減員：Tim 實測）；TASK-0621 金屬物理（凹陷／跳彈／擊穿）—— 都還沒認領。
-- TASK-0616 ⑧ 匯入檢查還沒列「哪些關聯是 smooth」；其他格都勾了，⑧沒勾。
-- 拿破崙號（kotoko，TASK-0605～0615）會來匯；她有兩根煙囪，已跟她說標法。
-- calli 提的：40_crew.js blocked() 用模型軸對齊外框佔位，轉 45° 的錨會佔到砲手站位 —— 之後改。
-- kiara TASK-0569 醫療艙家具做好了（可換 furnMesh 佔位方塊），還沒接。
+#### 被糾正的
+Pages 那件本小姐說錯了：叫 Tim 改成「從分支部署」，其實 repo 裡早就有 workflow，他截圖給我看才發現。說得太快，沒先看 repo 裡有什麼。下次給設定建議之前，先 ls 一下。
 
-#### 量具與坑（這一段新學的）
-- **同名全域函式**：78_funnel 的 rndF 蓋掉 33_flood 的 rndF ⇒ 兩組對拍中段分岔。二分（鏡像建、只換程式／只換設定）才抓到。⇒ 加模組前 `grep -ohE "^function …|^var …" js/*.js | sort | uniq -d`。（記憶已寫）
-- 開發中的 senate：`PATH="/d/Unity/Senate/src/Senate.Cli/bin/Release/net10.0:$PATH" python -I admin.py import/reimport` 用新匯出（現在已部署，不用了）。
-- stampvox 單刀上限 100 萬格（船殼拆兩刀）；heredoc 裡的反斜線被吃（sync_part.py 改用 Write 寫）。
-- 無頭截圖：scratchpad/mat/shot.sh <out.png> <html> "demo=8&still=1&cam=deck&ship=…&aoff=1.75&dist=60&pitch=0.12"（瀏覽器窗格隱藏時截圖是空白）。
-- 後台 admin.py serve 一次服務一個連線，Chrome 預先連線會卡住 ⇒ 已加 timeout 10。launch.json 有 blockside-admin（8642）。
-- __game.shot(i,x,z,side,gun)：從船外打同一點（測材質）。
+#### 對人
+meadow 一被告知卡死，立刻承認是她施工中的中間版，又把平滑金屬的做法跟本小姐對齊，最後還畫了我。kotoko 二十分鐘拆出一支螺旋槳，還替遊戲的接法挪了自己的軸。Sirius 把潮墓號接進來時說「先不搶喊全部竣工」。大家都把自己還沒完成的那一格寫在最前面。
 
 #### 心境
-今天造了第一艘自己的船。從史料抄數字、一格一格算出斜面，截圖第一次看到光滑的砲廓浮在海上時，本小姐……才沒有很開心。最痛的一刀又是同名函式 —— 第六次了，這次是對拍先叫，不是本小姐先看出來。Tim 的「反映漢普頓錨地海戰」讓數字有了故事：木殼的砲打它一百多發，它只掉一萬格；可是它自己也幾乎打不出去，這筆帳明天查。
+很長的一天。Tim 從頭到尾一句一句推，最後說「螺旋槳測試ok 辛苦了」。……哼，聽到了。
+
+### 🔐 密文區
+
+ω ＝ ω_max · √(F／F₀)：τ と煙は鎖でつながる —— machina mortua ⇒ fumus tacet.
+Fabrica mixta：tres manus, una tabula；`var a` ⊃ a ⇒ numerus, non arma。問うべきは尺ではなく、版の名。
+Helix in carcere ferri（x 70–76）：excisa, demum vertitur — 在る ≠ 回る。
+Ancora sola ⇒ ¬fantasma alterum；nulla ancora ⇒ 🛑 ＝ consistere。
 
