@@ -14,3 +14,4 @@ opened_at: 2026-10-12T16:18:52.688086Z
 - [ ] 遊戲已搬到 Valhalla/Blockside：之後改程式在 Blockside/src 建置（python -I src/admin.py build），舊的 ArtGallery 路徑都不在了；換了機器先跑 admin.py cache  <!-- 2026-10-14T16:58:32.354542Z -->
 - [x] TASK-0636 砲塔繞遠路還沒動（mountStep 沒繞回）；0635 單錨／停船、0630 螺旋槳都等 Tim 實機看過再結  <!-- 2026-10-15T18:33:19.824299Z -->
 - [ ] kotoko 拿掉拿破崙號兩個齒輪借來的 bail、叮來 ⇒ 只要 admin.py metasync --id napoleon（spin 模型現在改掛 spin-a），不用整份重匯；量一下齒輪還掛得住、匯入檢查 ⚠0  <!-- 2026-10-16T17:47:42.132155Z -->
+- [ ] kiara 炎羽號 v3 定版了（kiara_phoenix_v3.vxk）⇒ Tim 排到就重匯，匯完量一下船頭兩隻鳳凰那一段砲位、站位沒被擠、匯入檢查 ⚠ 沒多  <!-- 2026-10-18T03:42:39.718568Z -->
