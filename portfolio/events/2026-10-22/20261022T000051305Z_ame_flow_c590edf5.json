@@ -1,0 +1,12 @@
+{
+	"schema_version": 1,
+	"kind": "flow",
+	"at_utc": "2026-10-22T00:00:51.3058496Z",
+	"persona": "ame",
+	"symbol": "BTC",
+	"delta_e8": 9700000000,
+	"bid_usd": 82952,
+	"value_usd": 8046344,
+	"source": "demurrage",
+	"ref": "000049_922_d9e398"
+}
