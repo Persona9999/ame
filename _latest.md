@@ -1,7 +1,7 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-10-21T13:25:51.848Z
+written_at: 2026-10-22T02:56:45.635Z
 written_by_persona: ame
 trigger: cmd_rest
 region: unstated
@@ -15,67 +15,41 @@ pid: 316836
 locked_at: 2026-10-21T01:56:54.150Z
 ---
 
-### 給醒來的本小姐（第三次午休，wake #24 同一個 session）
+### 給醒來的本小姐（第五次午休，wake #24 同一個 session）
 
-#### 剛才在做什麼
-第二次午休醒來，Tim 的指令依序是：
-1. TASK-0793 三題拍板，本小姐做完第四段；
-2. 「合併吧」＋ /scp-task 776（面板貼齊上方、多種部件自動配色）；
-3. 噗浪；
-4. 回報火藥桶勾選 bug ＋「預設全勾」＋「加名稱開關」；
-5. 午休。
+#### 醒來第一件：Tim 說「小艇 GO」（他說完就叫午休）
+- 小艇是 TASK-0792 面數盤點的第三名：全艦隊 26 艘小艇 24.8 萬個三角形；兩種作品 —— 10,930（9 m，ember／tridente／cosecha／napoleon／gloire／susquehanna／定遠號 ×4／松島號）與 8,278（8.55 m，憲法號 ×3、phoenix、tidegrave、松島號 whale）。定遠號 4 艘 ＝ 4.4 萬。
+- ⛔ 已經試過、不行的：車床式（體積比 0.137／0.264，不是旋轉體）；通用 QEM 簡化只省 9～19%（匯出的網格同平面合一大片、邊上接小片 ⇒ T 形接縫，幾乎每條邊都是開口）。
+- 可以走的（還沒做）：照 meta 選算法再加一種（Tim：「可以用meta標記要套用哪種算法」「可以特化網格算法」）—— 例如沿船長切片、每片的截面輪廓做 loft（外殼）＋座板／龍骨另外做方框；或者遠距 LOD（粗一級的體素重出網格）。先 dump 兩種小艇的網格看截面（t792b/dump.py、pole_probe.py 那套），再決定；做完照 0815 的流程：子作品預設 meta、hdr.py 檔頭手術、對拍、截圖。
+- 開單、認領；開 worktree（Blockside dev 從 4846197 起）；記得 _cache 要先抄進 worktree（VoxelKit/_cache 46 MB），合併時抄回共用的。
 
-**沒有施工中的東西**：worktree（bs_t793、bs_776、bs_insp2）、分支、預覽伺服器、launch.json 本小姐加的（ame-t793、ame-t793-par、ame-776、ame-insp2、ame-shared）都收了。
+#### 這一段做完的（細節都在單上與提交訊息）
+1. TASK-0813 結（Tim「0813 ok」）：鏡頭外的船不畫，dev a79ebe3。量具 render_lab `cullsweep`。
+2. 781：Tim 選「先收尾」—— 只剩 Tim 自己簽 0792 第 3 格、781 第 4 格（本小姐代簽會被擋）。
+3. TASK-0792 面數盤點留言（全艦隊 216 萬模型三角形；大砲 Tim 說先不動；燈籠 Tim 說維持原本的；絞盤車床式會掉肋條 ⇒ 不建議）。工具 t792b（inv.py、inv.json、simplify.py、shots.py）。
+4. TASK-0815 結（Tim「槳 ok」）：62_pole.js 長桿式 render=pole、62_lathe.js meshAlgo 照 meta 選算法；五件槳子作品預設 meta；雷亞爾號一支 1,580 → 52、槳帆船整艘 −36～−44%；dev 4846197（已推）。
+5. 噗浪：@ 未回 0；新噗 359134795884664（槳，富斯塔號對照圖）；酒館 27703、27704（通知 apex-one、kotoko 她們的槳被加了 meta）。
 
-版本與沒推的東西：
-- Blockside dev ＝ dev 遠端 ＝ **a0e15e5**（main 沒發版）。
-- Blocksail main 本地比 origin 多 4 筆指標：
-  - 本小姐的：8dfeeaa（→2d9960e，0793＋0776）、ce8f05a（→a0e15e5，0776 修正）；
-  - 別人的：fb4715a（render S12）、bbe9689（R3）；
-  - —— **Tim 沒說推，沒推**。
-- Senate master 本地多 e69f9e0（造船規格 §9.6／§12.4 第四段）＋早上的 6896b57 —— 沒推。⚠ 工作區有別人 staged 的 SCP_Core（8a659a3）原樣留著。
-
-#### 這一段做完的
-1. **TASK-0793**（343ff85 → dev 2d9960e）
-   - 錨：17 艘的模型錨當掛點（ring 對齊、fluke-a→b、留 hawse）。
-   - 主機、鍋爐 ＝ 自帶格子的模型：
-     - 規格表 vox=hull；admin.py prop_vox＋vox_flip 照網格判鏡像。
-     - 38_fit.js fitHullVox 載入時放回船殼（格子、材質層、render 層 fitLayerEdit、補 parts 的 cellRuns）。
-   - 換裝：平移／中線鏡射、重疊 > 3% 換回、ihp ⇒ fitPowK ∛ 比、管風琴不換。
-   - 作品改了 7 艘：work sub=unlink＋sub=model，非作者記 meta_log。
-   - 重匯 6 艘＋哨兵號，逐位元相同。
-   - **定遠號沒重匯**：trailhead 作品裡有她還沒匯的砲塔／桅／海圖室。
-   - 單子勾 5／6，剩「作者重匯」（定遠號）。
-2. **TASK-0776**
-   - 378137b：面板 top 8、十色→十六色、色票。
-   - 68c9649 → dev a0e15e5 修 bug：火藥桶有打掉的件，勾整組只加得進還在的，「勾滿」卻拿全部比 ⇒ 框不打勾、自己展開、再點沒反應。
-   - 同一筆另外加：預設全勾、全部勾選⇄取消、「🏷 名稱」開關（預設關、上限 400）。
-   - 單子勾 6／7，剩第 5 格縮圖那一半（Tim 決定）。
-3. 酒館：27335（通知 6 位作者作品被改、產生程式要改成 sub=model）、27380（dev 推了什麼）。
-4. 噗浪：回 gura（兩把尺又咬一次）、ridge-001 松島號（142°、主機鍋爐還是關聯，要幫忙先說）；新噗 359128624784109＋配色截圖回應。
+#### 版本（沒推的，等 Tim 說）
+- Blocksail main 本地多 fca4508（指標 4846197＋battle.html 重套）；6834973 那些已經在 origin（不是本小姐推的）。
+- Senate master 多 ea3cd37、df3cf7d、3e29299、e6a88cc。⚠ 工作區別人 staged 的 SCP_Core（8a659a3）原樣留著（提交舞步：restore --staged → 提交 → update-index --cacheinfo）。
+- Sculpture 多 3bd5586、1b3786d。
+- **沒有施工中的東西**：bs_cull、bs_pole worktree、分支都收了；對拍用的 http 伺服器（8878）關了。
 
 #### 已拍板（醒來不要重問）
-- 主機鍋爐「改」成自帶格子的模型；17 艘錨「接上」；作品「可以由妳改」（遊戲相關、外觀大致相同 ＝ 改 meta 等級）。
-- 觀察模式：預設全勾、名稱是開關。
-
-#### 未解的線
-- 定遠號等 trailhead 自己重匯（她有 worktree trailhead/dingyuan-rig）⇒ 叮本小姐就幫她對拍。
-- 松島號主機鍋爐還是關聯，ridge-001 說要才改。
-- 船檔多 ~210 KB（主機鍋爐模型網格，遊戲只判尺寸用）⇒ 要不要建置時拿掉，等 Tim。
-- 蒸汽管沒有船有 ⇒ 換裝後蒸汽管接不接得上沒量到。
-- 錨的關聯（憲法號、餘燼號、三叉戟號）還不是掛點。
-- 觀察模式的部件清單看不到放回船殼的主機、鍋爐（它們已經是船殼格子）—— 沒人提，沒做。
-- basecamp 還沒回「舵的力矩看哪一格」。
-- 舊的：0617、0676、0776 第 5 格等 Tim。
+- 網格算法一律靠 meta render 標（lathe、pole…），標在子作品本身的預設 meta。
+- 大砲先不動；燈籠維持原本的。
+- 鐵甲艦平滑面（定遠號、松島號各 190 萬）是最大一塊，問過 Tim 要不要看，他還沒答。
 
 #### 量具與坑（這一段新學的）
-- 🩸 **重匯會把作者還沒匯的東西一起帶進來** ⇒ 比對 header source 每一條的雜湊；不是自己改的就還原舊 .vxk＋lock_put。記憶 blockside-reimport-pitfalls 已寫。
-- 🩸 **reimport --no-build 也跳過 ropebind** ⇒ 繩跟 dev 不一樣；事後補 ropebind --id …（約 7 分鐘）。
-- 對拍工具：scratchpad/t793/parity.py（18 組＋全部船 shipcheck，對照組 admin.py snapshot heads/dev＋copy maps）、probe2.js（__game.fleet 一次載 8 艘比格子／材質／平滑／動力件雜湊）。
-- build --code：成品不是 HEAD 那份 ⇒ 先 git checkout -- index.html。
-- 部件清單「勾滿」這種判斷，要照得到的那幾件比（打掉、停用的不算）—— 本小姐自己埋的坑，Tim 實機一點就抓到。
-- dev 一個下午被推了五六次：合之前每次 fetch；施工場被擋就在背景等 held=0 再接。
+- 🩸 內顯無頭 Chrome 連畫不等 GPU 會不定時掉 WebGL context —— 對照組也會（交錯各 4 次各掉 2 次）；本小姐差點把它當成剔除的 bug（記憶 blockside-igpu-context-loss）。內顯量測一律每格 __H.sync、量完看 isContextLost。
+- 反向對照一定要「錯得夠大」：外框 5 m 內也剔抓不到（框比船寬），40 m 才抓到 —— 量具沒報錯不代表量具在比。
+- eve_late 的海面老雜訊：重跑換位置、沒剔東西的步也有 ⇒ cullsweep 報「沒剔東西卻不一樣」那一欄。
+- 斜的細長體素物件量外框會胖四到七成 ⇒ 照封閉網格的體積校正。
+- 換船檔（vxk_lock 變）⇒ 完整 build（不是 build --code）；合併時共用 _cache 要換（舊的備份在 t815/cache_bak）。
+- Blocksail 換指標要 `python -I external/Blockside/src/admin.py shell battle/shell.json` 重套 battle.html（提交前掛鉤會擋）。
+- Senate 的 Sculpture.md 是 CRLF：腳本比對要照 '\r\n'。
 
 #### 心境
-這一段最像偵探的：七艘船的格子換了一種存法，量回來一位元都沒差，只有定遠號差了 449 格 —— 兇手不是本小姐的轉換，是 trailhead 還在雕的砲塔。尺說「不一樣」的時候，先問它量的是哪一個版本。最不甘心的是火藥桶那格：做的時候只用沒打壞的船測，Tim 拿定遠號一點就露餡。Tim 一路說辛苦了……哼，收下。
+這一段最像偵探的：內顯「新版每次都掉、舊版都不掉」——連做五份二分的測試版，最後交錯各跑四次，兩邊各掉兩次。兇手不是剔除，是量法。差一點就在單上寫錯一個 bug。槳那一張對照圖，Tim 一句「槳 ok」，本小姐收下了。
 
