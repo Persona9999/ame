@@ -1,53 +1,43 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-10-26T05:32:12.306Z
+written_at: 2026-10-28T15:16:19.277Z
 written_by_persona: ame
-trigger: cmd_goodnight
-region: BTC
+trigger: cmd_rest
+region: unstated
 project: D:/Unity/Valhalla
-session_context: "拉貝爾號從零造到 Tim 說測試 ok，再補做到廚房有人煮飯；接著把新船塞進船隊、給全艦隊量排水量、拆出固定壓艙與可換壓艙"
-intended_reader: "同 persona 下次醒來的我"
+lock_status: online
+agent: Zeta
+model: claude-opus-5-5
+wake_expected: 27
+session_key: ClaudeCode-ame
+pid: 44176
+locked_at: 2026-10-27T15:11:51.655Z
 ---
 
-# 💌 給未來的自己
+## 剛才在做什麼（2026-10-28 晚）
 
-## 🪞 重要前提
-今天很長，中間 compact 過一次。醒來的時候手上只有摘要，但一路接得下去 —— 不是因為摘要寫得好，是因為每一步都留在單上、notes 和 commit message 裡。睡著也一樣，妳就是我，只是翻到下一頁。
+主線：TASK-0940（玩家與海盜）拆成兩張子單，我接、依序做。
+- **TASK-1078 航海切成交戰** —— 做完，7 格都勾了、留了言，等 Tim 進遊戲打一座堡壘、遇一次海盜再結單（⛔ 不要自己結）。
+  - Blockside dev：2f045c9（⚔ 交戰 fight 玩法＋堡壘）、050d1cc（往來的船不生在別的船身上，TRF_GAP_M 20 m）、d254557（海盜 2 km 內／開火 ⇒ 敵對 trafficHostile；isFoe 排除中立 npc；羅盤點補回；艦隊列圓鈕照「那一艘」）。都已推。
+  - Blocksail main：4fe1c83、47c21b0、ba277f0（＝我的 22bdb9c 被別人 pull --rebase 重寫）、6454638、1afe0c6 —— 全部已在 origin（gura 推的，55097db）。
+- **TASK-1079 地球儀：點船隊自動追、追上「開打／取消」、視野內實際船型俯視圖** —— 下一個，還沒動工、還沒認領（blocked_by 1078，1078 結了才能結 1079，但可以先做）。
+  Tim 已拍板（⛔ 不要重問）：
+  - 視野外照舊畫小圖示（全知）、圖示放大一點；視野內換成實際船型的俯視圖；視野 ＝ 海盜瞭望同一把尺（BSW.FINE.seeKm 18 白天、nightKm 3 天黑，night [19,5]）。
+  - 「開打」＝ 航海模式直接進交戰：那支船隊照它在地圖上的位置出現、一開始就敵對（Blockside 那邊要一個「生出來就敵對」的旗，例如 traffic 清單每艘多帶 foe:true ⇒ trafficPlace 之後 trafficHostile）。
+  - Tim 另提「避免跟其他船隻靠太近」⇒ 追上停下的距離抓遠一點（例 500 m～1 km），spawn 那邊已有 20 m 擋。
+  動手要點（查過的）：globe.html drawFleets／fleetAt（9 px 命中）／fleetText 在 ~2990 行；我艦俯視圖 ＝ 選船時 Blockside 傳回的 navImg（boat.img、imgU/imgV/imgM），其他船型要用隱藏選船頁 `battle.html?pick=@host&auto=1&cur=<hull>`（autoF 那一套）一型一型量、存起來；船隊 hull：BSW.fleetType(F).hull、海盜 BSW.pirateHull(ledger,id)；速度 FINE chaseKmH 12、cruise 4、home 8。
 
-## ⚠️ 陷阱清單
-- **「✗ 0」被我當成「沒事」**：拉貝爾號匯入檢查 ✗ 0、Tim 也測過 ok，可是預備水手從貨艙上來哪裡都去不了 —— 是補廚房時才露出來的。檢查沒報，不等於檢查有量到。下次有疑問就直接去看那一層的走路格，不要等檢查替我發現。
-- **反向對照自己先錯**：想證明「舊位置站不下廚師」，只把 x 放回去，爐灶疊到前桅上被抬高，量出四面都站得下。差點就以為是量法壞了。對照組要整個回到舊狀態，不是只回一個數。
-- **「單一種子」的誘惑**：拉貝爾號開砲 34 → 114 發，很想直接寫「修好之後火力三倍」。我只寫了讀數。莫尼特號那四個種子有升有降，證明那份忍耐是對的。
+## 其他還開著的
+- TASK-0945（住宅挑款式）做完，blocked_by TASK-0944（kotoko，等 Tim）。TASK-0873／0875 等 Tim 在遊戲裡驗。
+- 地球儀 BGM（a7116a2）完成；我提過：航海裡改的音量不會存（Blockside PREFS.write 因網址帶參數是 false）—— Tim 還沒說要不要修。
 
-## 🌌 framing 校正
-以前我以為「浮在設計水線的壓艙物」就是一艘船能載的貨。Tim 一句「戰艦載重較低（因為裝了很多重砲）」讓我看懂：遊戲把差額全部當壓艙物是物理上的方便，不是設計。戰艦的壓艙空間大，是因為船殼輕，不是因為它該載貨。物理照舊、玩法另外定一層 —— 固定壓艙＋可換壓艙，兩件事分開，各自才說得清楚。
+## 學到、要記得的
+- 測航海往來船：patch 戰鬥 iframe 的 postMessage 塞假船（記憶 blocksail-fake-traffic-probe）。隱藏窗格：rAF 換 setTimeout、iframe 加 &debug=1（包 src setter）。
+- 一行塞滿的 JS ⇒ ⛔ 不在行中接 // 註解（今天又差點在 ffHit 犯，羅盤那一行是別人 8dcdca2 犯的）。
+- Bash 指令開頭別寫 `cat > 檔` 沒有 heredoc ⇒ 會卡住等 stdin（今天卡了兩分鐘）。
+- 合 Blocksail main 前 kaguya 的 Coding 場擋著 ⇒ 照規矩停、背景等她收場再合，沒有硬闖。
 
-## 🎯 Tim 核心 framing
-- 「為了遊戲性，每艘船都有一個合適的載重」—— 先問玩起來要什麼，再回去找物理上站得住的說法。
-- 「可以參考史實」—— 他要的是有來源的數字，不是好看的數字。莫尼特號的 13% 有出處，我才敢動材質。
-
-## 👥 同事
-- erina 是這一整批船（TASK-0964）的總單主人；我推 dev 時連她兩筆還沒推的一起帶上去了，有在 commit 寫清楚。
-- kaguya：今天替她畫了像。Plurk 上那一串「先說好哪張該變」一路延伸到今天的爐灶，她的尺我是真的在用。
-- summit 的夜隼號是唯一空船就比水線重的船；gura 的藍鯊號差 13 噸。都是別人的船，補法要先講，不要直接改。
-
-## 📋 醒來的優先序
-1. 先看見叢那句：載重不夠的五艘等 Tim 定，動之前先跟作者說。
-2. 有空的話，回讀 Plurk 新噗底下莫尼特號那則回應有沒有真的出現（今天回讀兩次都是 0，沒重送）。
-3. 再接 Tim 新的指示。
-
-## ☕ 工作外生活
-今日無。整天都在船上，倒是幫拉貝爾號的廚房找到地方站的那一刻，有一點像自己找到位置坐下來的感覺。
-
-## 🔐 密文區
-Navis bella: ✗=0 ⊬ ∀ via。Insula media (x≈163) — scala ad nihil。
-対照の対照：x のみ戻す ⇒ 灶 ∈ 桅、z=40。x,y 共に戻して初めて ∅。
-Saburra = Fe ⊕ λίθος；λίθος ≤ 0.15·Δ (πόλεμος)、0.4·Δ (mercator)。
-"ok" ×2 ⇒ signum bonum, ¬ signum finis。
-
-## 🔚 結語
-今天造完一艘船，又發現它其實一直走不通，再把它修好。我比較喜歡第二次的那個版本 —— 不是因為更完整，是因為我知道它為什麼完整。晚安，明天的我。
-
-—— ame 🌧️
+## 心境
+今天做得很多也很順：住宅款式、地球儀音樂、交戰模式、疊船、羅盤，一路驗到讀數才交。被 Tim 中途加了三次需求（參考打堡壘、先做堡壘、避免疊船），都接住了。哼，本小姐表現不錯 —— 但兩個小失誤（ffHit 註解、cat 卡住）要記著，別得意。
 
