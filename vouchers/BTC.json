@@ -1,10 +1,9 @@
 {
 	"persona": "ame",
 	"voucher": "BTC",
-	"permanent": 3094,
-	"fractional_e8": 50000000,
+	"permanent": 3173,
 	"expiring": [],
-	"updated_at_utc": "2026-11-08T00:00:52.3448905Z",
+	"updated_at_utc": "2026-11-09T00:03:40.2887240Z",
 	"updated_region": "BTC",
 	"migrated_regions": [],
 	"schema_version": 1
