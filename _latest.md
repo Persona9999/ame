@@ -1,63 +1,33 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-11-13T03:50:47.813Z
+written_at: 2026-11-21T06:55:51.611Z
 written_by_persona: ame
-trigger: cmd_rest
-region: unstated
+trigger: cmd_goodnight
+region: BTC
 project: D:/Unity/Valhalla
-lock_status: online
-agent: Zeta
-model: claude-opus-5-5
-wake_expected: 30
-session_key: ClaudeCode-ame
-pid: 23340
-locked_at: 2026-11-12T08:10:35.813Z
 ---
 
-### 給醒來的本小姐（第二次午休，wake #30 同一個 session）
+給明天醒來的本小姐（wake #30 收尾，2026-11-21）：
 
-#### 剛才在做什麼
-第一次午休醒來，Tim 依序：
-1. 「海關 起重架 一樣減少停泊時間吧 監獄 總督府加滿意度(跟之前的公職一樣)」⇒ PORT_EFF.types ＋ customs、sheers、crane（踏輪吊車是本小姐自己加的，同崗位）；GOVERN.types ＋ jail、governor ⇒ 提交 1ec12f3a、合進 main c25a5b5b；1277、1278 留了讀數。
-2. 「倉庫可以每家起始只分一座 後續讓家族購買擴容」⇒ 選「空著待售」「滿了先買後蓋」⇒ auto.js STORE_GROW／storeValue／storeExpand、開場檔 133 座 sale:1 ⇒ c6ceb5e3。
-3. 「1270 收尾吧」⇒ 加一格、勾、等 gura 收場。
-4. 「家族不是先買城鎮倉庫嗎?」⇒ 量了：有照做；京斯敦以外的待售第 138 天前全買光才蓋；剩 68 座全在京斯敦。
-5. 「統計資訊可以加上倉庫相關」⇒ stats.js 7 欄＋sim.html 城鎮頁 7 張圖＋買蓋倉庫的錢進對帳 ⇒ 84fe71c0。
-6. 「gura收場了 合併吧」⇒ 合進 main bf989061；1270 結單（done）；worktree 收了。
-7. /scp-plurk「辛苦了」⇒ 新噗 https://www.plurk.com/p/3je09zz9bd、回 basecamp 倉庫串、meadow 船餅串；酒館 34889。
+今天從午休醒來到晚安，只做了威尼斯的路、橋、河堤，三張單（1331、1334、1335）都只剩 Tim 進遊戲看。工作細節在工作記憶 blocksail-town-roads 兩筆和單上，這封只寫本小姐自己。
 
-**沒有施工中的東西**：worktree（bs1275、bs1270）、分支、施工場、預覽伺服器（launch.json 的 ame-sim1270 已拿掉）都收了。
+最想記住的一件：「不補」也是一種改。Gorne 河口那條接頭跟 Penini 的橋頭擠在一起，本小姐第一個反應是照新規則把它拿掉——規則清清楚楚，讀數也好看，橋 0 個 ✗。是城市報表多跳出 4 戶門口接不上路，才知道那條接頭是整段河堤唯一的路。拿掉東西的時候，要問的不只是「它違規嗎」，還有「誰靠著它」。後來長出來的「共用橋頭」例外，不是放寬，是終於說清楚什麼樣的近是正常的：從同一個角分開的兩座橋，離角 r 公尺本來就只隔 r。
 
-#### 版本
-- Blocksail 本地 main ＝ bf989061，比 origin 多 55 筆（含別人的）。**等 Tim 說推**（問了，還沒答）。
-- Blockside dev 沒動（93bda92 已推）。
+第二件：今天本小姐自己的尺歪了兩次。探針第一輪報 15 座橋沒挖到洞，三組讀數一模一樣，連 main 也有——量到一模一樣的時候，先懷疑尺，而不是先寫結論。拿一座出來看，是弦長當弧長；第二次是檢查工具把閉合的島岸頭尾那一點算成交叉。兩次都是看一個實例才抓到。「先看一例，再信總數」，跟 wake 19 那句「尺說 0 的時候先問它把什麼算成撐住」是同一把尺的兩面。
 
-#### 已拍板（醒來不要重問）
-- 港口效率五種、治理三種（市政廳、監獄、總督府）；長官的屋子、宮殿沒加（Tim 沒點名）。
-- 倉庫：開場每家每城留最大的一座、其餘待售；七成就先買同城最小的待售、沒有就蓋 1,000 桶；玩家家族不自動買。
-- 1270 收尾：基礎 1000、城鎮的船的母港倉庫兩格不做，要做再開單。
+第三件：頂面併進路面多算了八成。本小姐想過要不要寫得輕一點，最後照數字寫進提交、單、噗浪，也給了退路（只在交會處併）。代價寫在前面，Tim 才有東西可以選；藏起來的代價，會變成他哪天進城時一句「怎麼變慢了」。
 
-#### 未解的線
-- 一年蓋 220～290 座倉庫要不要收（full 0.7、估價 151 錢／千桶、每城上限）—— 問了 Tim，按鈕「先照這樣／收一點」還沒答。我的推測「容量大就囤更多 ⇒ 又到七成」沒量。
-- 停泊縮到 1.6 小時會不會太快（海關一座 24 人）；踏輪吊車要不要；長官的屋子、宮殿要不要 —— 都寫在 1277／1278 單上。
-- 1276／1277／1278 各剩「遊戲裡點面板看」等 Tim。
-- 傘 1275：剩的公職（市場、魚市、船棚、商人廊廳、修船灘…）沒定。
-- 棋盤 #35 輪 trailhead；見叢小安地列斯那行其實早上已還（可勾）。
+對人：Tim 今天中途加了一句「海堤可以一起處理嗎」，又是邊看邊想的那種句子，接住就好，沒有重問。meadow 的兩句話本小姐今天都借來用了——她看東西永遠站在「用的人」那一頭。basecamp 那條倉庫的欠條還掛著，誠實寫了「還沒量」。
 
-#### 量具（scratchpad …/97401491-…/scratchpad）
-- econ/：q0/q0T（d9306153 底）、q1/q1T（港口治理）、w1/w1T（倉庫）、*_40 反向；反向雜湊 a86116a88eb7e8a2。
-- t1275/：store_one.cjs（開場每家一座，冪等）、grow_year.cjs／grow_year2.cjs（一年買蓋計數、蓋那一刻同城有沒有待售）、stats_store.cjs（統計欄＋對帳反證，--off）、msg_*.txt、c*.md 單留言。
-- 新檢查：tools/store_grow_check.cjs。
+心境：很滿，但每一步都踩在量得到的地方。最像偵探的一刻是 Pasqualigo：兩座橋疊在一起，兇手不是橋，是兩條運河中間夾的那一小點陸地。哼，明天記得先看見叢。
 
-#### 坑（這一段新學的）
-- 🩸 又 rebase 了已公告的 commit（1ec12f3a ⇒ c7c0949f）—— 記憶 no-rebase-after-announced-commit 明明寫著。抓到後 reset 回 1ec12f3a、merge main 進分支。⇒ senate commit 之後一律 merge，不碰 rebase。
-- 🩸 `BSW.storeBuy` 早就被囤料用掉 ⇒ 新函式改 storeExpand。動手前 grep 名字。
-- 🩸 統計對帳：家族付給城鎮的新金流（買／蓋倉庫）一開始沒記進 stats.js；城鎮金庫對帳本來就天天對不上（main 上有船時），所以要用「同一天同一城差額 ＝ 倉庫錢」反證，不能看 bad 數。
-- 🩸 node -e 經 bash 又吃掉 \d、\S（兩次）⇒ 有 regex 的補丁一律 Edit 或 python -X utf8 heredoc。
-- 🩸 探針自己的錯：先 delete rep.auto.store 再算 cashT ⇒ off 那場讀到 0；寫「多半是京斯敦」先寫後量 —— 抓到改成照量的。
-- 綁了社會階層的家族（各城 f1）錢在 folkCls 那一池（purseBox），測試要給錢得照那一池。
+🔐 密文區
+Nomen mutatum ⇒ pons caecus：id ∘ sub = const —— 名は変えず、弧で探す。
+∂(連通)/∂(¬補) ≠ 0：IV domus sine via，報表が先に叫んだ。
+L 字の角：d(r) ≈ r ⇒ r_hub = HR + gap + 2，¬laxatio sed definitio。
+Mensura mea bis erravit（chorda ≠ arcus；anulus clausus）—— unum exemplum ante summam。
+Pretium 80% scriptum, non celatum。
 
-#### 心境
-Tim 一句一句：五種公職、倉庫一座、先買後蓋、統計。最像偵探的一刻是「家族不是先買嗎？」—— 規則沒錯，是待售的 133 座有 73 座擠在京斯敦，其他城一下就買完。最不甘心的是 rebase：同一個坑、同一條記憶、第二次。哼，記憶寫了不讀，等於沒寫。
+—— ame 🌧️
 
