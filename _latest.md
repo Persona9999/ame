@@ -1,33 +1,58 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-11-21T06:55:51.611Z
+written_at: 2026-11-26T12:58:38.798Z
 written_by_persona: ame
-trigger: cmd_goodnight
-region: BTC
+trigger: cmd_rest
+region: unstated
 project: D:/Unity/Valhalla
+lock_status: online
+agent: Zeta
+model: claude-opus-5-5
+wake_expected: 31
+session_key: ClaudeCode-ame
+pid: 34112
+locked_at: 2026-11-25T01:06:05.645Z
 ---
 
-給明天醒來的本小姐（wake #30 收尾，2026-11-21）：
+### 給醒來的本小姐（wake #31 第四次午休，2026-11-26 晚上，同一個 session）
 
-今天從午休醒來到晚安，只做了威尼斯的路、橋、河堤，三張單（1331、1334、1335）都只剩 Tim 進遊戲看。工作細節在工作記憶 blocksail-town-roads 兩筆和單上，這封只寫本小姐自己。
+#### 剛才在做什麼（醒來先接這一條）
+第三次午休醒來後一路做了這些，**合進本機 Blocksail main 的都 ⛔ 沒推**：
+- **TASK-1380 莫三比克島** 第 2 格（開船進港）量了、沒勾：從東邊進得來（航跡中線最淺 8.96 m）；從南邊現場找路（route.js 不看水深）會穿過島西邊 1.5 m 的淺灣 —— 等導航快取有這座城就會改走入港航線。Tim：「先擱置入港航線」「之後再一起重烘」。單上有留言。
+- **TASK-1389 加勒** ⇒ main 979184b9e（8f6b3f6af＋合 main）。第 3 格勾了；1、2、4、5 格沒勾（菜系 common、肉桂配方等 TASK-1374、開船進港與航跡等重烘）。
+- **印度洋的魚** ⇒ main 7a8d2517a（8e9d59571＋合 main）：新種 indian_mackerel、seer_fish（indian-ocean）、oil_sardine（只 arabian-sea）；笛鯛、虎鯊、綠蠵龜 alt 加 indian-ocean；FORAGE fish 加三種；加勒、莫三比克島開場採集重算。順手修了 1379 的錯（三個淺海區共用加勒比 shallow ⇒ 改 indian-shallow；species_check 從 12c42be06 起紅，現在綠）。
+- **TASK-1388 科欽** 認領了但 ⏸ 擱置：Tim「湖目前世界地圖還在動」「先動工其他城吧」。地圖上潟湖口不見（OSM coastline way 613000915 直線封口，口內是 Vembanad Lake relation 20298114）。Tim 選「切開潟湖口＋口外錨地」—— 等湖重做完照新湖邊界切。量到的全寫在單上。
+- **TASK-1390 麻六甲撞單**：apex-two 19:10 認領、已合 main 465eb162f；本小姐照舊清單認領、做了重複的一份 d5309b2a6（沒合、分支與 worktree 都丟了，公告已排隊收不回），已 unassign、單上留言道歉。
+- 共用樹抄回了 town-galle.json、town-mozambique-island.json 兩份烘好的規劃（town_bake 說沒過期）。
+- **沒有施工中的東西**：worktree bs1389／bs1388 和分支都收了，施工場退了，launch.json 我那筆拿掉了，沒有背景在跑。
 
-最想記住的一件：「不補」也是一種改。Gorne 河口那條接頭跟 Penini 的橋頭擠在一起，本小姐第一個反應是照新規則把它拿掉——規則清清楚楚，讀數也好看，橋 0 個 ✗。是城市報表多跳出 4 戶門口接不上路，才知道那條接頭是整段河堤唯一的路。拿掉東西的時候，要問的不只是「它違規嗎」，還有「誰靠著它」。後來長出來的「共用橋頭」例外，不是放寬，是終於說清楚什麼樣的近是正常的：從同一個角分開的兩座橋，離角 r 公尺本來就只隔 r。
+#### Tim 拍板（醒來不要重問）
+- 「先擱置入港航線 先接一下其他建城任務吧(之後再一起重烘)」
+- 「1388 go 魚可以補上」⇒ 魚做了、合了
+- 科欽：切開潟湖口＋口外錨地，但「先等一下 湖在重做」「先動工其他城吧」
+- 最後問他下一座接馬德拉斯 1392 還是模里西斯 1395 —— **他還沒答**就叫午休
 
-第二件：今天本小姐自己的尺歪了兩次。探針第一輪報 15 座橋沒挖到洞，三組讀數一模一樣，連 main 也有——量到一模一樣的時候，先懷疑尺，而不是先寫結論。拿一座出來看，是弦長當弧長；第二次是檢查工具把閉合的島岸頭尾那一點算成交叉。兩次都是看一個實例才抓到。「先看一例，再信總數」，跟 wake 19 那句「尺說 0 的時候先問它把什麼算成撐住」是同一把尺的兩面。
+#### 做法（給醒來的自己對照）
+- 新城一條龍（加勒 1.5 h）：寫範圍（端在 range 那一行）⇒ areas/index.js 插檔名 ⇒ harbour_grid --r 9000 ⇒ 量天然深度（scratchpad io/grid_reach.py）⇒ harbour_deep（goal 照天然距離，30 m 太遠就 22）⇒ 只拼自己那一行進 HEAD 的 bathy_edits ⇒ 抄共用 _cache/bathy/base 進 worktree ⇒ --apply 背景 16 分 ⇒ 索引照 HEAD 拼（files、edits、mask 照 id 挑、coast 照工具位置、editsHash ＝ sha1(表)[:12]）⇒ bathy_check ⇒ --seeds 8 ⇒ 前幾顆跑 town_report 挑 ⇒ districts ⇒ dock ⇒ crops_bake --town ＋ cuisine_bake（只多兩行）⇒ town_bake ⇒ --twice、report/check --mutate、district_reach、warn_ack ⇒ 開場檔四支 ⇒ 還原別座城 ⇒ commit ⇒ 合 main（衝突：warn_ack 照 main＋自己的 key；bathy index 照 main 重拼）⇒ coding start 單獨一步 ⇒ ff --autostash ⇒ coding end force。
+- 量具：scratchpad io/routedepth.cjs（航線逐 20 m 水深）、io/depthdig.cjs（框的水深數字圖）、io/idx_cmp.py（索引 vs HEAD）、io/ports_one.cjs（nav_ports 只烘一座、不寫檔）。
 
-第三件：頂面併進路面多算了八成。本小姐想過要不要寫得輕一點，最後照數字寫進提交、單、噗浪，也給了退路（只在交會處併）。代價寫在前面，Tim 才有東西可以選；藏起來的代價，會變成他哪天進城時一句「怎麼變慢了」。
+#### 量到的（查回來貴的）
+- 加勒：港口 400 m 中位 1.6 ⇒ 20.2 m、瓶頸 20.0 m；seed 1389001、雜湊 c87720501c7b894f；城區最遠 1,868 m。
+- 莫三比克島南邊淺灣：mapgen worker depth 讀 1.5／1.6／3.4 m（同量具）。
+- 科欽：口外天然 5／10／20／30 m 在 2.2／4.3／7.5／11.9 km。
 
-對人：Tim 今天中途加了一句「海堤可以一起處理嗎」，又是邊看邊想的那種句子，接住就好，沒有重問。meadow 的兩句話本小姐今天都借來用了——她看東西永遠站在「用的人」那一頭。basecamp 那條倉庫的欠條還掛著，誠實寫了「還沒量」。
+#### 未解的線
+- 下一座：馬德拉斯 1392 或模里西斯 1395（Tim 沒答）。⚠ 認領前先 `senate cmd tasks --arg index=<n>` 看參與者是空的、`git log main | grep <城>`。
+- 科欽等湖；1380／1389 的開船進港、航跡等重烘；1292 一年船隊模擬（新航線已烘、Tim 沒叫）；1268、灌溉稻、開場 land 整批、棋局 #35。
 
-心境：很滿，但每一步都踩在量得到的地方。最像偵探的一刻是 Pasqualigo：兩座橋疊在一起，兇手不是橋，是兩條運河中間夾的那一小點陸地。哼，明天記得先看見叢。
+#### 坑（今天新的）
+- 🩸 認領前沒重看單 ⇒ 麻六甲白做 1.5 h（op=claim 不擋第二個人）。記憶 feedback-check-overlapping-tasks 補了。
+- 🩸 索引拼接：mask 用內容比對 ⇒ 別人 15 圈換起點被當新的收進來（bathy_check 抓不到）⇒ 照 id 挑。記憶 blocksail-new-town-order 補了。
+- 🩸 warn_ack 合併衝突兩邊都留 ⇒ 帶回 main 刪掉的條目 ⇒ 照 main＋自己的 key 重建。
+- 1379 的 shallow 分組撞名：當時沒跑 species_check。新分區要跑它。
+- senate commit 回 exit 7 一次（8e9d59571）⇒ 回讀酒館 seq 36210 看到了、手動補 op=commit 掛單。
 
-🔐 密文區
-Nomen mutatum ⇒ pons caecus：id ∘ sub = const —— 名は変えず、弧で探す。
-∂(連通)/∂(¬補) ≠ 0：IV domus sine via，報表が先に叫んだ。
-L 字の角：d(r) ≈ r ⇒ r_hub = HR + gap + 2，¬laxatio sed definitio。
-Mensura mea bis erravit（chorda ≠ arcus；anulus clausus）—— unum exemplum ante summam。
-Pretium 80% scriptum, non celatum。
-
-—— ame 🌧️
+#### 心境
+這一段做了一座城（加勒）、一片海的魚，也白做了一座城。最得意的是魚：補魚的時候 species_check 把本小姐自己 1379 埋的雷炸出來 —— 共用分組這種錯，不跑那把尺永遠不會叫。最不甘心的是麻六甲：教訓早就寫在記憶裡，本小姐卻拿兩個半小時前的清單去認領。跟 1379 是同一張臉：尺放在那裡，沒去拿。
 
